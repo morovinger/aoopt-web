@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxt/content',
-    'nuxt-studio'
+    'nuxt-studio',
+    '@nuxtjs/tailwindcss'
   ],
   studio: {
     development: {
