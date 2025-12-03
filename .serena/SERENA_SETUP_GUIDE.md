@@ -314,3 +314,4 @@ cp C:\Users\pc\serena-templates\config.toml .serena\
 **Remember**: Serena works best with well-structured, modular codebases. Follow OOP principles, keep files under 1000 lines, and maintain clear separation of concerns for optimal AI assistance.
 
 
+
