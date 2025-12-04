@@ -1,0 +1,159 @@
+<template>
+  <div class="specialist-page">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-green-700 to-green-900 text-white py-20">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          Для специалистов ООПТ
+        </h1>
+        <p class="text-xl md:text-2xl opacity-90 max-w-3xl">
+          Обмен опытом и профессиональными знаниями между сотрудниками особо охраняемых природных территорий
+        </p>
+      </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="prose prose-lg max-w-none">
+          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            Этот раздел создан для профессионального взаимодействия между специалистами особо охраняемых 
+            природных территорий, входящих в Ассоциацию ООПТ Северо-Запада России.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            Здесь собраны практические материалы, методические рекомендации и базы данных, 
+            которые могут быть использованы в работе различных ООПТ.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Для предложения материалов в данный раздел свяжитесь с координатором Ассоциации.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resource Cards Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
+          Ресурсы для специалистов
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Legal Practice Card -->
+          <NuxtLink 
+            to="/law" 
+            class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col"
+          >
+            <div class="text-green-600 mb-4">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Юридическая практика
+            </h3>
+            <p class="text-gray-600 flex-grow">
+              Примеры правоприменительной практики, образцы документов и юридические материалы
+            </p>
+            <div class="mt-4 text-green-600 font-semibold">
+              Подробнее →
+            </div>
+          </NuxtLink>
+
+          <!-- Researchers Database Card -->
+          <NuxtLink 
+            to="/experts" 
+            class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col"
+          >
+            <div class="text-green-600 mb-4">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              База научных сотрудников
+            </h3>
+            <p class="text-gray-600 flex-grow">
+              Контакты специалистов, работающих на территориях ООПТ Северо-Запада
+            </p>
+            <div class="mt-4 text-green-600 font-semibold">
+              Подробнее →
+            </div>
+          </NuxtLink>
+
+          <!-- Expedition Sites Card -->
+          <NuxtLink 
+            to="/eco-expeditions" 
+            class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col"
+          >
+            <div class="text-green-600 mb-4">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Площадки для экспедиций
+            </h3>
+            <p class="text-gray-600 flex-grow">
+              Информация о доступных площадках для проведения научных исследований
+            </p>
+            <div class="mt-4 text-green-600 font-semibold">
+              Подробнее →
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-green-800 text-white">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+          <div>
+            <div class="text-4xl md:text-5xl font-bold mb-2">1995</div>
+            <div class="text-sm md:text-base opacity-90">Год основания</div>
+          </div>
+          <div>
+            <div class="text-4xl md:text-5xl font-bold mb-2">31</div>
+            <div class="text-sm md:text-base opacity-90">Федеральная ООПТ</div>
+          </div>
+          <div>
+            <div class="text-4xl md:text-5xl font-bold mb-2">6.6M</div>
+            <div class="text-sm md:text-base opacity-90">Гектар дикой природы</div>
+          </div>
+          <div>
+            <div class="text-4xl md:text-5xl font-bold mb-2">6</div>
+            <div class="text-sm md:text-base opacity-90">Биосферных резерватов ЮНЕСКО</div>
+          </div>
+          <div>
+            <div class="text-4xl md:text-5xl font-bold mb-2">2</div>
+            <div class="text-sm md:text-base opacity-90">Объекта всемирного наследия ЮНЕСКО</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Для специалистов ООПТ | Ассоциация ООПТ Северо-Запада',
+  meta: [
+    { 
+      name: 'description', 
+      content: 'Ресурсы и материалы для специалистов особо охраняемых природных территорий Северо-Запада России' 
+    }
+  ]
+})
+</script>
+
+<style scoped>
+.specialist-page {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+</style>

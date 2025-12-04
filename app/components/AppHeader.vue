@@ -22,14 +22,15 @@
           <NuxtLink to="/news" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Новости</NuxtLink>
           
           <div class="relative group">
-            <button class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded flex items-center gap-1">
+            <NuxtLink to="/specialist" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded flex items-center gap-1">
               Специалисту
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="absolute left-0 mt-1 w-56 bg-white shadow-lg rounded opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
-              <NuxtLink to="/legal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Юридическая практика</NuxtLink>
-              <NuxtLink to="/science" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">База научных сотрудников</NuxtLink>
-              <NuxtLink to="/expeditions" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Площадки для экспедиций</NuxtLink>
+            </NuxtLink>
+            <div class="absolute left-0 mt-1 w-64 bg-white shadow-lg rounded opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
+              <NuxtLink to="/specialist" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-semibold border-b">Специалистам</NuxtLink>
+              <NuxtLink to="/law" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Юридическая практика</NuxtLink>
+              <NuxtLink to="/experts" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">База научных сотрудников</NuxtLink>
+              <NuxtLink to="/eco-expeditions" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Площадки для экспедиций</NuxtLink>
             </div>
           </div>
 
@@ -53,11 +54,11 @@
           <NuxtLink to="/" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Главная</NuxtLink>
           <NuxtLink to="/about" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">О Нас</NuxtLink>
           <NuxtLink to="/news" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Новости</NuxtLink>
+          <NuxtLink to="/specialist" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Специалисту</NuxtLink>
           <div class="pl-4 py-2">
-            <p class="text-white/70 uppercase text-xs font-bold mb-2">Специалисту</p>
-            <NuxtLink to="/legal" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">Юридическая практика</NuxtLink>
-            <NuxtLink to="/science" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">База научных сотрудников</NuxtLink>
-            <NuxtLink to="/expeditions" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">Площадки для экспедиций</NuxtLink>
+            <NuxtLink to="/law" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">Юридическая практика</NuxtLink>
+            <NuxtLink to="/experts" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">База научных сотрудников</NuxtLink>
+            <NuxtLink to="/eco-expeditions" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">Площадки для экспедиций</NuxtLink>
           </div>
           <NuxtLink to="/tourist" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Туристу</NuxtLink>
           <NuxtLink to="/volunteer" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Волонтеру</NuxtLink>
