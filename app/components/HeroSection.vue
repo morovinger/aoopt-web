@@ -3,7 +3,7 @@
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0">
       <img 
-        src="https://images.unsplash.com/photo-1568393691622-c7ba131d63b4?q=80&w=2560&auto=format&fit=crop" 
+        src="/images/hero-wildlife.jpg" 
         alt="Wildlife background" 
         class="w-full h-full object-cover"
       />

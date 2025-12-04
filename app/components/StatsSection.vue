@@ -36,7 +36,7 @@
         <!-- Right: Image -->
         <div class="lg:w-1/2">
           <img 
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop" 
+            src="/images/team-nature.jpg" 
             alt="Team working in nature" 
             class="w-full h-auto rounded-lg shadow-lg"
           />
