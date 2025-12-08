@@ -1,28 +1,5 @@
 <template>
   <div class="volunteer-page" data-page="volunteer">
-    <!-- 
-      NOTE: Both volunteer and tourism pages use a split hero layout (PageHeroSplit) 
-      instead of the standard HeroSection used on the main page.
-      The hero has a background image on one side and an overlaid text box.
-    -->
-    
-    <!-- Hero Section - Split layout with background image -->
-    <section class="volunteer-hero relative overflow-hidden" data-section="hero">
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/90 to-teal-700/80 z-10" />
-      <img 
-        src="https://static.wixstatic.com/media/65d40007c89944cd970accd4729abddb.jpg" 
-        alt="Заповедный волонтер"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-      <div class="relative z-20 container mx-auto px-4 max-w-6xl py-20">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Заповедный волонтер
-        </h1>
-        <p class="text-xl text-white/90 max-w-2xl">
-          Волонтерство в заповедниках и национальных парках Северо-Запада России
-        </p>
-      </div>
-    </section>
 
     <!-- Volunteer Info Section -->
     <section class="volunteer-info py-16 bg-white" data-section="info">

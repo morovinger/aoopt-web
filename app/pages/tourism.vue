@@ -1,22 +1,5 @@
 <template>
   <div class="tourism-page" data-page="tourism">
-    <!-- Hero Section -->
-    <section class="tourism-hero relative overflow-hidden" data-section="hero">
-      <div class="absolute inset-0 bg-gradient-to-r from-teal-900/90 to-teal-700/80 z-10" />
-      <img 
-        src="https://static.wixstatic.com/media/b08f14_6fa3c774f542445e9633f9310d6314b3~mv2_d_2000_1333_s_2.jpg" 
-        alt="Экотуризм"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-      <div class="relative z-20 container mx-auto px-4 max-w-6xl py-20">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Экотуризм
-        </h1>
-        <p class="text-xl text-white/90 max-w-2xl">
-          Туризм в заповедниках и национальных парках Северо-Запада России
-        </p>
-      </div>
-    </section>
 
     <!-- Ecotourism Info Section -->
     <section class="tourism-info py-16 bg-white" data-section="info">
