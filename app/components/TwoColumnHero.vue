@@ -1,52 +1,54 @@
 <template>
   <section class="two-column-hero" :data-section="sectionId">
-    <div class="hero-container">
-      <!-- Left Column: Content -->
-      <div class="hero-content">
-        <div class="content-wrapper">
-          <!-- Title -->
-          <h1 class="hero-title">
-            {{ title }}
-          </h1>
-          
-          <!-- Accent Bar -->
-          <div class="accent-bar" />
-          
-          <!-- Text Content -->
-          <div class="hero-text">
-            <slot>
-              <p v-for="(paragraph, index) in paragraphs" :key="index">
-                {{ paragraph }}
-              </p>
-            </slot>
-          </div>
-          
-          <!-- Scroll Indicator (optional) -->
-          <div v-if="showScrollIndicator" class="scroll-indicator">
-            <svg 
-              class="scroll-icon" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor"
-            >
-              <path 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="hero-container">
+        <!-- Left Column: Content -->
+        <div class="hero-content">
+          <div class="content-wrapper">
+            <!-- Title -->
+            <h1 class="hero-title">
+              {{ title }}
+            </h1>
+            
+            <!-- Accent Bar -->
+            <div class="accent-bar" />
+            
+            <!-- Text Content -->
+            <div class="hero-text">
+              <slot>
+                <p v-for="(paragraph, index) in paragraphs" :key="index">
+                  {{ paragraph }}
+                </p>
+              </slot>
+            </div>
+            
+            <!-- Scroll Indicator (optional) -->
+            <div v-if="showScrollIndicator" class="scroll-indicator">
+              <svg 
+                class="scroll-icon" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor"
+              >
+                <path 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Right Column: Image -->
-      <div class="hero-image">
-        <img 
-          :src="imageUrl" 
-          :alt="imageAlt"
-          class="image"
-        />
+        
+        <!-- Right Column: Image -->
+        <div class="hero-image">
+          <img 
+            :src="imageUrl" 
+            :alt="imageAlt"
+            class="image"
+          />
+        </div>
       </div>
     </div>
   </section>

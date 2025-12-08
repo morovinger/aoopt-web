@@ -5,9 +5,10 @@
         <!-- Logo Section -->
         <NuxtLink to="/" class="site-logo flex items-center gap-3" data-element="logo">
           <div class="w-10 h-10 bg-[#3D7C3B] rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
-            </svg>
+            <img 
+              src="/images/logo.png"
+              alt="logo"
+          />
           </div>
           <div class="flex flex-col leading-tight">
             <span class="text-white font-bold text-base uppercase tracking-wide">Ассоциация ООПТ</span>

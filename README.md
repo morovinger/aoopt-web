@@ -19,22 +19,6 @@ npm run dev
 npm run build
 ```
 
-## Serena Integration
-
-This project is configured to work with [Serena](https://github.com/oraios/serena) - an AI coding agent toolkit.
-
-### Configuration
-- `.serena/config.toml` - Serena project settings
-- `.serena/onboarding.md` - Project overview for AI agents
-
-### Using Serena
-Serena provides semantic code analysis and editing capabilities through:
-- Symbol-level navigation and editing
-- Intelligent code search and refactoring
-- Memory system for maintaining context across sessions
-
-The configuration automatically excludes `node_modules`, `.nuxt`, and build artifacts from analysis.
-
 ## Project Structure
 
 - `app/` - Application code
@@ -49,4 +33,5 @@ The configuration automatically excludes `node_modules`, `.nuxt`, and build arti
 - Vue 3.5.25
 - TypeScript
 - @nuxt/content
+- @nuxt/studio
 - better-sqlite3
