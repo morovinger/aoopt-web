@@ -116,12 +116,12 @@
           <p class="text-gray-700 mb-6">
             Чтобы внести свою территорию в список экологических площадок, свяжитесь с координатором Ассоциации.
           </p>
-          <NuxtLink 
-            to="/contacts" 
+          <a 
+            href="/#contacts" 
             class="inline-block bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors"
           >
             Связаться с координатором
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </section>

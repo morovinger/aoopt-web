@@ -36,7 +36,7 @@
 
           <NuxtLink to="/tourism" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Туристу</NuxtLink>
           <NuxtLink to="/volunteer" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Волонтеру</NuxtLink>
-          <NuxtLink to="/contacts" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Контакты</NuxtLink>
+          <a href="/#contacts" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Контакты</a>
         </nav>
 
         <!-- Mobile Menu Button -->
@@ -62,7 +62,7 @@
           </div>
           <NuxtLink to="/tourism" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Туристу</NuxtLink>
           <NuxtLink to="/volunteer" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Волонтеру</NuxtLink>
-          <NuxtLink to="/contacts" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Контакты</NuxtLink>
+          <a href="/#contacts" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded" @click="isMobileMenuOpen = false">Контакты</a>
         </div>
       </div>
     </div>

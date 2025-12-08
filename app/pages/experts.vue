@@ -151,12 +151,12 @@
             Если вы являетесь научным сотрудником или специалистом ООПТ и хотите добавить свои контакты 
             в базу данных, свяжитесь с координатором Ассоциации.
           </p>
-          <NuxtLink 
-            to="/contacts" 
+          <a 
+            href="/#contacts" 
             class="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
           >
             Отправить заявку
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </section>

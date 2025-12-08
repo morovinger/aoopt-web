@@ -52,12 +52,12 @@
             Для получения юридической консультации или предоставления материалов для публикации 
             свяжитесь с координатором Ассоциации.
           </p>
-          <NuxtLink 
-            to="/contacts" 
+          <a 
+            href="/#contacts" 
             class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Связаться с нами
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </section>

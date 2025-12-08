@@ -1,5 +1,5 @@
 <template>
-  <section class="contacts-section py-16 bg-white" data-component="contacts">
+  <section id="contacts" class="contacts-section py-16 bg-white" data-component="contacts">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-400 mb-4 uppercase relative inline-block">

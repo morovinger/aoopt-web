@@ -97,23 +97,6 @@
     <!-- Gallery Section -->
     <TourismGallery />
 
-    <!-- CTA Section -->
-    <section class="tourism-cta py-16 bg-teal-700" data-section="cta">
-      <div class="container mx-auto px-4 max-w-4xl text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">
-          Планируете путешествие?
-        </h2>
-        <p class="text-xl text-white/90 mb-8">
-          Свяжитесь с нами для получения информации о посещении заповедников и национальных парков
-        </p>
-        <NuxtLink 
-          to="/#contacts" 
-          class="inline-block bg-white text-teal-700 px-8 py-3 rounded-lg font-semibold hover:bg-teal-50 transition-colors"
-        >
-          Связаться с нами
-        </NuxtLink>
-      </div>
-    </section>
   </div>
 </template>
 
