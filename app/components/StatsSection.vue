@@ -44,12 +44,7 @@
       </div>
 
       <!-- Stats Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center bg-cyan-500 py-12 px-4 rounded-lg">
-        <div v-for="stat in stats" :key="stat.label" class="p-2">
-          <div class="text-3xl md:text-4xl font-bold text-white mb-2">{{ stat.value }}</div>
-          <div class="text-xs font-semibold text-white uppercase tracking-wide leading-tight">{{ stat.label }}</div>
-        </div>
-      </div>
+      <StatsGrid :stats="stats" variant="light" />
 
     </div>
   </section>

@@ -34,7 +34,7 @@
             </div>
           </div>
 
-          <NuxtLink to="/tourist" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Туристу</NuxtLink>
+          <NuxtLink to="/tourism" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Туристу</NuxtLink>
           <NuxtLink to="/volunteer" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Волонтеру</NuxtLink>
           <NuxtLink to="/contacts" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Контакты</NuxtLink>
         </nav>
@@ -60,7 +60,7 @@
             <NuxtLink to="/experts" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">База научных сотрудников</NuxtLink>
             <NuxtLink to="/eco-expeditions" class="block py-1 pl-4 text-sm text-white/90 hover:text-white">Площадки для экспедиций</NuxtLink>
           </div>
-          <NuxtLink to="/tourist" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Туристу</NuxtLink>
+          <NuxtLink to="/tourism" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Туристу</NuxtLink>
           <NuxtLink to="/volunteer" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Волонтеру</NuxtLink>
           <NuxtLink to="/contacts" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Контакты</NuxtLink>
         </div>
