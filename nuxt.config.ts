@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   // GitHub Pages base path (repo name)
   app: {
-    baseURL: '/mySite/'
+    baseURL: process.env.NODE_ENV === 'production' ? '/mySite/' : '/'
   },
 
   modules: [
