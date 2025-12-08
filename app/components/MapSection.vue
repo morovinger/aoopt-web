@@ -2,7 +2,7 @@
   <section class="map-section py-16 bg-gray-100" data-component="map">
     <div class="container mx-auto px-4">
       <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-gray-400 mb-4 uppercase relative inline-block">
+        <h2 class="text-3xl md:text-6xl font-bold text-gray-400 mb-4 uppercase relative inline-block">
           Карта
           <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-cyan-400"></span>
         </h2>

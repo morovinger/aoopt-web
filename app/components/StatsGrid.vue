@@ -48,13 +48,13 @@ const variantClasses = computed(() => {
     case 'dark':
       return {
         wrapper: 'bg-gray-900 py-12',
-        value: 'text-3xl md:text-4xl text-teal-400',
+        value: 'text-3xl md:text-6xl text-teal-400',
         label: 'text-xs font-semibold text-white uppercase tracking-wide leading-tight'
       }
     case 'light':
       return {
         wrapper: 'bg-cyan-500 py-12',
-        value: 'text-3xl md:text-4xl text-white',
+        value: 'text-3xl md:text-6xl text-white',
         label: 'text-xs font-semibold text-white uppercase tracking-wide leading-tight'
       }
     case 'green':

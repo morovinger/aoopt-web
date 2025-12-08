@@ -12,7 +12,7 @@
 
     <!-- Content -->
     <div class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-5xl tracking-wide uppercase">
+      <h1 class="text-3xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-5xl tracking-wide uppercase">
         АССОЦИАЦИЯ ЗАПОВЕДНИКОВ И<br />
         НАЦИОНАЛЬНЫХ ПАРКОВ<br />
         СЕВЕРО-ЗАПАДА РОССИИ

@@ -13,7 +13,7 @@
     <!-- Resource Cards Section -->
     <section class="specialist-resources py-16 bg-gray-50" data-section="resources">
       <div class="container mx-auto px-4 max-w-6xl">
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
+        <h2 class="text-3xl md:text-6xl font-bold text-center mb-12 text-gray-800">
           Ресурсы для специалистов
         </h2>
         

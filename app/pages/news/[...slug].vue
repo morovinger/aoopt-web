@@ -13,7 +13,7 @@
             <span>{{ article.title }}</span>
           </nav>
           
-          <h1 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+          <h1 class="text-3xl md:text-6xl font-bold mb-6 leading-tight">
             {{ article.title }}
           </h1>
           

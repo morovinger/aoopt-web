@@ -1,7 +1,7 @@
 <template>
   <section class="tourism-gallery py-16 bg-gray-50" data-component="tourism-gallery">
     <div class="container mx-auto px-4 max-w-7xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-4">
+      <h2 class="text-3xl md:text-6xl font-bold text-gray-800 text-center mb-4">
         Туризм в заповедниках и национальных парках
       </h2>
       <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
