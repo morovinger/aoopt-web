@@ -3,8 +3,7 @@
 
     <!-- Two Column Hero Section -->
     <TwoColumnHero
-      title="ЭКОЛОГИЧЕСКИЙ
-ТУРИЗМ"
+      title="ЭКОТУРИЗМ"
       :paragraphs="heroParagraphs"
       image-url="https://static.wixstatic.com/media/65d40007c89944cd970accd4729abddb.jpg"
       image-alt="Экотуризм в заповедниках"
