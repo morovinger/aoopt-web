@@ -86,7 +86,7 @@ useHead({
 })
 
 // Fetch all news using queryCollection from 'news' collection
-const { data: posts } = await useAsyncData('news-list', () => 
+const { data: posts } = useAsyncData('news-list', () => 
   queryCollection('news').order('date', 'DESC').all()
 )
 

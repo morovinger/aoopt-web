@@ -114,36 +114,19 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="specialist-stats py-16 bg-green-800 text-white" data-section="stats">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">1995</div>
-            <div class="text-sm md:text-base opacity-90">Год основания</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">31</div>
-            <div class="text-sm md:text-base opacity-90">Федеральная ООПТ</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">6.6M</div>
-            <div class="text-sm md:text-base opacity-90">Гектар дикой природы</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">6</div>
-            <div class="text-sm md:text-base opacity-90">Биосферных резерватов ЮНЕСКО</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">2</div>
-            <div class="text-sm md:text-base opacity-90">Объекта всемирного наследия ЮНЕСКО</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <StatsGrid :stats="associationStats" />
   </div>
 </template>
 
 <script setup lang="ts">
+const associationStats = [
+  { value: '1995', label: 'Год основания' },
+  { value: '31', label: 'Федеральная ООПТ' },
+  { value: '6.6M', label: 'Гектар дикой природы' },
+  { value: '6', label: 'Биосферных резерватов ЮНЕСКО' },
+  { value: '2', label: 'Объекта всемирного наследия ЮНЕСКО' }
+]
+
 useHead({
   title: 'Для специалистов ООПТ | Ассоциация ООПТ Северо-Запада',
   meta: [

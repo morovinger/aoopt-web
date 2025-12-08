@@ -1,25 +1,24 @@
 <template>
   <div 
-    class="stats-grid grid gap-8 text-center py-12 px-4 rounded-lg"
-    :class="[
-      gridColsClass,
-      variant === 'dark' ? 'bg-gray-900' : 'bg-cyan-500'
-    ]"
+    class="stats-grid-wrapper"
+    :class="variantClasses.wrapper"
     data-component="stats-grid"
   >
     <div 
-      v-for="stat in stats" 
-      :key="stat.label" 
-      class="stat-item p-2"
+      class="stats-grid grid gap-8 text-center container mx-auto px-4 max-w-6xl"
+      :class="gridColsClass"
     >
       <div 
-        class="text-3xl md:text-4xl font-bold mb-2"
-        :class="variant === 'dark' ? 'text-teal-400' : 'text-white'"
+        v-for="stat in stats" 
+        :key="stat.label" 
+        class="stat-item p-2"
       >
-        {{ stat.value }}
-      </div>
-      <div class="text-xs font-semibold text-white uppercase tracking-wide leading-tight">
-        {{ stat.label }}
+        <div class="font-bold mb-2" :class="variantClasses.value">
+          {{ stat.value }}
+        </div>
+        <div :class="variantClasses.label">
+          {{ stat.label }}
+        </div>
       </div>
     </div>
   </div>
@@ -35,13 +34,37 @@ interface Stat {
 
 interface Props {
   stats: Stat[]
-  variant?: 'dark' | 'light'
+  variant?: 'dark' | 'light' | 'green'
   columns?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'light',
+  variant: 'green',
   columns: 0
+})
+
+const variantClasses = computed(() => {
+  switch (props.variant) {
+    case 'dark':
+      return {
+        wrapper: 'bg-gray-900 py-12',
+        value: 'text-3xl md:text-4xl text-teal-400',
+        label: 'text-xs font-semibold text-white uppercase tracking-wide leading-tight'
+      }
+    case 'light':
+      return {
+        wrapper: 'bg-cyan-500 py-12',
+        value: 'text-3xl md:text-4xl text-white',
+        label: 'text-xs font-semibold text-white uppercase tracking-wide leading-tight'
+      }
+    case 'green':
+    default:
+      return {
+        wrapper: 'bg-green-800 py-16 text-white',
+        value: 'text-4xl md:text-5xl text-white',
+        label: 'text-sm md:text-base opacity-90'
+      }
+  }
 })
 
 const gridColsClass = computed(() => {
@@ -59,7 +82,8 @@ const gridColsClass = computed(() => {
   position: relative;
 }
 
-.stats-grid.bg-gray-900 .stat-item::after {
+/* Dark variant dividers */
+.stats-grid-wrapper.bg-gray-900 .stat-item::after {
   content: '';
   position: absolute;
   right: 0;
@@ -70,19 +94,19 @@ const gridColsClass = computed(() => {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.stats-grid.bg-gray-900 .stat-item:last-child::after {
+.stats-grid-wrapper.bg-gray-900 .stat-item:last-child::after {
   display: none;
 }
 
 @media (max-width: 1024px) {
-  .stats-grid.bg-gray-900 .stat-item:nth-child(3)::after {
+  .stats-grid-wrapper.bg-gray-900 .stat-item:nth-child(3)::after {
     display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .stats-grid.bg-gray-900 .stat-item:nth-child(2)::after,
-  .stats-grid.bg-gray-900 .stat-item:nth-child(4)::after {
+  .stats-grid-wrapper.bg-gray-900 .stat-item:nth-child(2)::after,
+  .stats-grid-wrapper.bg-gray-900 .stat-item:nth-child(4)::after {
     display: none;
   }
 }

@@ -110,11 +110,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <StatsGrid :stats="volunteerStats" variant="dark" />
-      </div>
-    </section>
+    <StatsGrid :stats="volunteerStats" variant="dark" />
 
     <!-- Map Section -->
     <MapSection />
