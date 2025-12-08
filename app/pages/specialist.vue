@@ -1,35 +1,14 @@
 <template>
   <div class="specialist-page" data-page="specialist">
-    <!-- Hero Section -->
-    <section class="specialist-hero bg-gradient-to-br from-green-700 to-green-900 text-white py-20" data-section="hero">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          Для специалистов ООПТ
-        </h1>
-        <p class="text-xl md:text-2xl opacity-90 max-w-3xl">
-          Обмен опытом и профессиональными знаниями между сотрудниками особо охраняемых природных территорий
-        </p>
-      </div>
-    </section>
 
-    <!-- Description Section -->
-    <section class="specialist-description py-16 bg-white" data-section="description">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <div class="prose prose-lg max-w-none">
-          <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            Этот раздел создан для профессионального взаимодействия между специалистами особо охраняемых 
-            природных территорий, входящих в Ассоциацию ООПТ Северо-Запада России.
-          </p>
-          <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            Здесь собраны практические материалы, методические рекомендации и базы данных, 
-            которые могут быть использованы в работе различных ООПТ.
-          </p>
-          <p class="text-lg text-gray-700 leading-relaxed">
-            Для предложения материалов в данный раздел свяжитесь с координатором Ассоциации.
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- Two Column Hero Section -->
+    <TwoColumnHero
+      title="СПЕЦИАЛИСТУ"
+      :paragraphs="heroParagraphs"
+      image-url="https://static.wixstatic.com/media/11062b_8b7b2e6b2c854ed1a0da99af85bcdc0f~mv2.jpg"
+      image-alt="Специалисты ООПТ"
+      section-id="specialist-hero"
+    />
 
     <!-- Resource Cards Section -->
     <section class="specialist-resources py-16 bg-gray-50" data-section="resources">
@@ -119,6 +98,12 @@
 </template>
 
 <script setup lang="ts">
+const heroParagraphs = [
+  'Этот раздел создан для профессионального взаимодействия между специалистами особо охраняемых природных территорий, входящих в Ассоциацию ООПТ Северо-Запада России.',
+  'Здесь собраны практические материалы, методические рекомендации и базы данных, которые могут быть использованы в работе различных ООПТ.',
+  'Для предложения материалов в данный раздел свяжитесь с координатором Ассоциации.'
+]
+
 const associationStats = [
   { value: '1995', label: 'Год основания' },
   { value: '31', label: 'Федеральная ООПТ' },
@@ -137,9 +122,3 @@ useHead({
   ]
 })
 </script>
-
-<style scoped>
-.specialist-page {
-  font-family: system-ui, -apple-system, sans-serif;
-}
-</style>
