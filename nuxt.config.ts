@@ -13,14 +13,22 @@ export default defineNuxtConfig({
     'nuxt-studio',
     '@nuxtjs/tailwindcss'
   ],
+
+  // Fix for nuxt-studio H3Error
+  vite: {
+    optimizeDeps: {
+      include: ['brace-expansion']
+    }
+  },
+
   studio: {
     development: {
       sync: true
     },
     repository: {
       provider: 'github',
-      owner: 'aoopt-szr', // TODO: Replace with your GitHub username
-      repo: 'mySite', // TODO: Replace with your GitHub repository name
+      owner: 'aoopt-szr',
+      repo: 'mySite',
       branch: 'main',
       rootDir: ''
     }
