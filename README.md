@@ -23,6 +23,9 @@ npm run build
 
 - `app/` - Application code
   - `pages/` - Vue page components (auto-routed)
+  - `components/` - Reusable Vue components
+  - `composables/` - Composable functions for shared logic
+  - `layouts/` - Layout templates
 - `content/` - Markdown content files
 - `public/` - Static assets
 - `nuxt.config.ts` - Nuxt configuration
