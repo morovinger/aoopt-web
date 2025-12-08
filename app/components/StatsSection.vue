@@ -18,7 +18,7 @@
             
             <h2 class="text-3xl md:text-6xl font-bold text-gray-400 mb-4 uppercase relative inline-block">
               О Нас
-              <span class="absolute bottom-0 left-0 w-16 h-1 bg-cyan-400"></span>
+              <span class="absolute -bottom-3 left-0 w-16 h-2 bg-cyan-400"></span>
             </h2>
             
             <div class="text-gray-600 leading-relaxed space-y-4 mt-6">

@@ -109,9 +109,9 @@ withDefaults(defineProps<Props>(), {
 
 .accent-bar {
   width: 80px;
-  height: 4px;
+  height: 8px;
   background-color: #4db6ac;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .hero-text {
