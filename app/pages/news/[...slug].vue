@@ -86,34 +86,6 @@
         </div>
       </section>
     </template>
-
-    <!-- Not Found -->
-    <template v-else>
-      <section class="py-20 bg-white text-center">
-        <div class="container mx-auto px-4">
-          <h1 class="text-4xl font-bold text-gray-800 mb-4">Статья не найдена</h1>
-          <p class="text-gray-600 mb-8">К сожалению, запрашиваемая статья не существует.</p>
-          <NuxtLink to="/news" class="text-cyan-600 hover:text-cyan-800 font-medium">
-            ← Вернуться к новостям
-          </NuxtLink>
-        </div>
-      </section>
-    </template>
-
-    <!-- Back Navigation -->
-    <section class="article-navigation py-8 bg-gray-100" data-section="navigation">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <NuxtLink 
-          to="/news" 
-          class="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-semibold"
-        >
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-          </svg>
-          Вернуться к новостям
-        </NuxtLink>
-      </div>
-    </section>
   </div>
 </template>
 
