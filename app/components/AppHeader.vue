@@ -19,7 +19,7 @@
         <!-- Desktop Navigation -->
         <nav class="desktop-nav hidden lg:flex items-center space-x-1" data-element="navigation">
           <NuxtLink to="/" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Главная</NuxtLink>
-          <a href="/#about" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">О Нас</a>
+          <a :href="`${baseURL}#about`" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">О Нас</a>
           <NuxtLink to="/news" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Новости</NuxtLink>
           
           <div class="nav-dropdown relative group" data-dropdown="specialist">
@@ -37,7 +37,7 @@
 
           <NuxtLink to="/tourism" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Туристу</NuxtLink>
           <NuxtLink to="/volunteer" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Волонтеру</NuxtLink>
-          <a href="/#contacts" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Контакты</a>
+          <a :href="`${baseURL}#contacts`" class="px-4 py-2 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs transition rounded">Контакты</a>
         </nav>
 
         <!-- Mobile Menu Button -->
@@ -53,7 +53,7 @@
       <div v-if="isMobileMenuOpen" class="mobile-menu lg:hidden mt-3 pb-3 border-t border-[#3D7C3B] pt-3" data-element="mobile-menu">
         <div class="flex flex-col space-y-1">
           <NuxtLink to="/" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Главная</NuxtLink>
-          <a href="/#about" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded" @click="isMobileMenuOpen = false">О Нас</a>
+          <a :href="`${baseURL}#about`" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded" @click="isMobileMenuOpen = false">О Нас</a>
           <NuxtLink to="/news" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Новости</NuxtLink>
           <NuxtLink to="/specialist" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Специалисту</NuxtLink>
           <div class="pl-4 py-2">
@@ -63,7 +63,7 @@
           </div>
           <NuxtLink to="/tourism" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Туристу</NuxtLink>
           <NuxtLink to="/volunteer" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded">Волонтеру</NuxtLink>
-          <a href="/#contacts" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded" @click="isMobileMenuOpen = false">Контакты</a>
+          <a :href="`${baseURL}#contacts`" class="block py-2 px-4 text-white hover:bg-[#3D7C3B] font-medium uppercase text-xs rounded" @click="isMobileMenuOpen = false">Контакты</a>
         </div>
       </div>
     </div>
@@ -74,5 +74,7 @@
 import { ref } from 'vue'
 
 const isMobileMenuOpen = ref(false)
+const config = useRuntimeConfig()
+const baseURL = config.app.baseURL
 </script>
 
