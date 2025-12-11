@@ -1,5 +1,5 @@
 <template>
-  <section class="two-column-hero" :data-section="sectionId">
+  <section class="two-column-hero" :data-section="sectionId" ref="heroRef">
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="hero-container">
         <!-- Left Column: Content -->
@@ -23,7 +23,12 @@
             </div>
             
             <!-- Scroll Indicator (optional) -->
-            <div v-if="showScrollIndicator" class="scroll-indicator">
+            <button 
+              v-if="showScrollIndicator" 
+              class="scroll-indicator"
+              @click="scrollToNextSection"
+              aria-label="Scroll to content"
+            >
               <svg 
                 class="scroll-icon" 
                 viewBox="0 0 24 24" 
@@ -37,7 +42,7 @@
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-            </div>
+            </button>
           </div>
         </div>
         
@@ -55,6 +60,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 interface Props {
   title: string
   paragraphs?: string[]
@@ -70,6 +77,14 @@ withDefaults(defineProps<Props>(), {
   sectionId: 'hero',
   showScrollIndicator: true
 })
+
+const heroRef = ref<HTMLElement | null>(null)
+
+const scrollToNextSection = () => {
+  if (heroRef.value && heroRef.value.nextElementSibling) {
+    heroRef.value.nextElementSibling.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <style scoped>
@@ -132,6 +147,10 @@ withDefaults(defineProps<Props>(), {
   margin-top: 3rem;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .scroll-icon {
