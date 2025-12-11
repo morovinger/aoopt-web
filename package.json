@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "build:cf": "nuxi build --preset=cloudflare_pages",
+    "postbuild": "node scripts/ensure-cf-pages-routes.mjs",
     "postbuild:cf": "node scripts/ensure-cf-pages-routes.mjs",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
