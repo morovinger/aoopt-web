@@ -60,8 +60,19 @@ Then **no build command ran**, so the `.output/public` folder was never generate
 - **Cloudflare Pages (Dashboard)**:
   - **Build command**: `npm run build:cf`
   - **Build output directory**: `.output/public`
-- **Wrangler config (BETA)**:
-  - This repo includes a `wrangler.toml` `[build]` command (`npm run build:cf`) so Pages can build even when it auto-detects config from Wrangler.
+
+### Fix for the error: `Configuration file for Pages projects does not support "build"`
+
+If your Pages build log shows:
+
+- `Running configuration file validation for Pages:`
+- `Configuration file for Pages projects does not support "build"`
+
+Then **your `wrangler.toml` includes a `[build]` section**, which Pages currently rejects.
+
+- **Fix**: remove the `[build]` section from `wrangler.toml` and configure build in the **Cloudflare Pages Dashboard**:
+  - **Build command**: `npm run build:cf`
+  - **Build output directory**: `.output/public`
 
 ### Base URL (optional)
 
