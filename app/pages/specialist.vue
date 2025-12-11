@@ -11,7 +11,7 @@
     />
 
         <!-- Stats Section -->
-    <StatsGrid :stats="associationStats" />
+    <StatsGrid :stats="associationStats" variant="light" />
 
     <!-- Resource Cards Section -->
     <section class="specialist-resources py-16 bg-gray-50" data-section="resources">
@@ -121,10 +121,11 @@ const heroParagraphs = [
 
 const associationStats = [
   { value: '1995', label: 'Год основания' },
-  { value: '31', label: 'Федеральная ООПТ' },
-  { value: '6.6M', label: 'Гектар дикой природы' },
-  { value: '6', label: 'Биосферных резерватов ЮНЕСКО' },
-  { value: '2', label: 'Объекта всемирного наследия ЮНЕСКО' }
+  { value: '43', label: 'Федеральных ООПТ' },
+  { value: '15,6M', label: 'Гектар дикой природы' },
+  { value: '7', label: 'Биосферных резерватов ЮНЕСКО' },
+  { value: '3', label: 'Объекта всемирного наследия ЮНЕСКО' },
+  { value: '6', label: 'Территорий Рамсарской конвенции' }
 ]
 
 useHead({

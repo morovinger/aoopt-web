@@ -12,7 +12,7 @@
     />
 
     <!-- Stats Section -->
-    <StatsGrid :stats="volunteerStats" variant="dark" />
+    <StatsGrid :stats="volunteerStats" variant="light" />
 
     <!-- Map Section -->
     <MapSection />
@@ -37,10 +37,11 @@ const heroParagraphs = [
 
 const volunteerStats = [
   { value: '1995', label: 'Год основания' },
-  { value: '31', label: 'Федеральных ООПТ' },
-  { value: '6,6M', label: 'Гектар дикой природы' },
-  { value: '6', label: 'Биосферных резерватов ЮНЕСКО' },
-  { value: '2', label: 'Объекта всемирного наследия ЮНЕСКО' }
+  { value: '43', label: 'Федеральных ООПТ' },
+  { value: '15,6M', label: 'Гектар дикой природы' },
+  { value: '7', label: 'Биосферных резерватов ЮНЕСКО' },
+  { value: '3', label: 'Объекта всемирного наследия ЮНЕСКО' },
+  { value: '6', label: 'Территорий Рамсарской конвенции' }
 ]
 
 useHead({
