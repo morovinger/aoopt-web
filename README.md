@@ -87,6 +87,7 @@ Cloudflare Pages enforces a **100 character limit per rule** in the routes file 
 Some builds can generate overly long rules (often due to long asset paths).
 
 - **Fix (recommended)**: this repo includes `public/_routes.json` to override the generated routes file with short wildcard rules.
+- **Important**: Nuxt/Nitro may generate an output routes file during build. This repo runs `postbuild:cf` to force-copy `public/_routes.json` into `.output/public/_routes.json` so the safe rules always win.
 - If you customize routing later, keep each `include` / `exclude` entry **under 100 characters**.
 
 ### Wrangler CLI (optional deploy)
