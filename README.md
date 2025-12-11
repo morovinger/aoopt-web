@@ -29,6 +29,22 @@ This project is configured to build for Cloudflare Pages (Workers runtime) using
 - **Build output directory**: `.output/public`
 - **Node.js version**: Use Node 20+ (recommended for Nuxt 4)
 
+### Fix for the error: “Workers-specific command in a Pages project”
+
+If your deploy log shows something like:
+
+- `Executing user deploy command: npx wrangler deploy`
+- `It looks like you've run a Workers-specific command in a Pages project. For Pages, please run wrangler pages deploy instead.`
+
+Then your **Cloudflare Pages project has a Deploy command set to a Workers command**.
+
+- **Fix (recommended)**: **Remove/clear the Deploy command** in Cloudflare Pages. Pages deploys automatically after the build using the “Build output directory”.
+- **Fix (if you really want a Deploy command)**: set it to:
+
+```bash
+npx wrangler pages deploy .output/public --project-name "$CF_PAGES_PROJECT_NAME"
+```
+
 ### Base URL (optional)
 
 Cloudflare Pages is usually deployed at the domain root. If you ever deploy under a sub-path, set:
