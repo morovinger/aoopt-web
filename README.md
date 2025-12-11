@@ -5,16 +5,19 @@ A modern Nuxt application with content management capabilities.
 ## Setup
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-2. Start development server:
+1. Start development server:
+
 ```bash
 npm run dev
 ```
 
-3. Build for production:
+1. Build for production:
+
 ```bash
 npm run build
 ```
@@ -44,6 +47,21 @@ Then your **Cloudflare Pages project has a Deploy command set to a Workers comma
 ```bash
 npx wrangler pages deploy .output/public --project-name "$CF_PAGES_PROJECT_NAME"
 ```
+
+### Fix for the error: `Output directory ".output/public" not found`
+
+If your Pages build log shows:
+
+- `No build command specified. Skipping build step.`
+- `Error: Output directory ".output/public" not found.`
+
+Then **no build command ran**, so the `.output/public` folder was never generated.
+
+- **Cloudflare Pages (Dashboard)**:
+  - **Build command**: `npm run build:cf`
+  - **Build output directory**: `.output/public`
+- **Wrangler config (BETA)**:
+  - This repo includes a `wrangler.toml` `[build]` command (`npm run build:cf`) so Pages can build even when it auto-detects config from Wrangler.
 
 ### Base URL (optional)
 

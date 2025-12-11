@@ -4,4 +4,10 @@ compatibility_date = "2024-04-03"
 # For `wrangler pages deploy` / `wrangler pages dev`
 pages_build_output_dir = ".output/public"
 
+[build]
+# Cloudflare Pages may read build configuration from `wrangler.toml` (BETA).
+# If no build command is specified, Pages can skip the build step and fail
+# with: `Error: Output directory ".output/public" not found.`
+command = "npm run build:cf"
+
 
