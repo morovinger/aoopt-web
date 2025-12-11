@@ -81,6 +81,14 @@ Cloudflare Pages is usually deployed at the domain root. If you ever deploy unde
 - **Env var**: `NUXT_APP_BASE_URL`
 - **Example value**: `/mySite/` (must include leading and trailing `/`)
 
+### Fix for the error: `Error 8000057: Rule (...) in routes.json is over the 100 character limit`
+
+Cloudflare Pages enforces a **100 character limit per rule** in the routes file it uses for Functions routing.
+Some builds can generate overly long rules (often due to long asset paths).
+
+- **Fix (recommended)**: this repo includes `public/_routes.json` to override the generated routes file with short wildcard rules.
+- If you customize routing later, keep each `include` / `exclude` entry **under 100 characters**.
+
 ### Wrangler CLI (optional deploy)
 
 If you prefer deploying from your machine:
