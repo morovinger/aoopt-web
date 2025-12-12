@@ -4,7 +4,7 @@
     <NewsSection data-section="news" />
     <StatsSection data-section="stats" />
     <ParkGallery
-      title="Туризм в заповедниках и национальных парках"
+      title="Туризм в заповедниках и национальных парках test"
       :parks="tourismParks"
       component-id="home-gallery"
     />
