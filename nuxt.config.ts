@@ -44,8 +44,8 @@ export default defineNuxtConfig({
     },
     repository: {
       provider: 'github',
-      owner: 'aoopt-szr',
-      repo: 'mySite',
+      owner: 'morovinger',
+      repo: 'aoopt-web',
       branch: 'main',
       rootDir: ''
     }
