@@ -86,8 +86,17 @@ Cloudflare Pages is usually deployed at the domain root. If you ever deploy unde
 Cloudflare Pages enforces a **100 character limit per rule** in the routes file it uses for Functions routing.
 Some builds can generate overly long rules (often due to long asset paths).
 
-- **Fix (recommended)**: this repo includes `public/_routes.json` to override the generated routes file with short wildcard rules.
-- **Important**: Nuxt/Nitro may generate an output routes file during build. This repo runs `postbuild` (and `postbuild:cf`) to force-copy `public/_routes.json` into `.output/public/_routes.json` so the safe rules always win (regardless of whether Pages runs `npm run build` or `npm run build:cf`).
+**Root cause**: Long filenames (especially Cyrillic/Unicode) become extremely long when URL-encoded. For example, a Russian filename like `Информационное письмо.docx` becomes `%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5%20%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE.docx` — way over 100 chars.
+
+**Fix (root cause)**:
+
+- **Keep all asset filenames short and ASCII-only** (e.g., `info-letter.docx` instead of Cyrillic names).
+- This repo has already renamed the problematic files in `public/images/expeditions/` and `public/images/law/`.
+
+**Fix (fallback)**:
+
+- This repo includes `public/_routes.json` with short wildcard rules.
+- The `postbuild` script copies it to `.output/public/_routes.json` so it overrides any generated routes.
 - If you customize routing later, keep each `include` / `exclude` entry **under 100 characters**.
 
 ### Wrangler CLI (optional deploy)

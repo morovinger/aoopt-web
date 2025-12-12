@@ -25,7 +25,7 @@
             <div class="documents-list mt-8">
               <p class="text-base text-gray-700 mb-4">Подробности - в 
                 <a 
-                  :href="`${baseURL}images/expeditions/Информационное письмо.docx`" 
+                  :href="`${baseURL}images/expeditions/info-letter.docx`" 
                   class="text-blue-600 hover:text-blue-800 underline"
                   download
                 >
@@ -35,7 +35,7 @@
               <ul class="list-disc list-inside space-y-2 text-base text-gray-700">
                 <li>
                   <a 
-                    :href="`${baseURL}images/expeditions/Банк данных по ООПТ с возможностями приёма - 2019.docx`" 
+                    :href="`${baseURL}images/expeditions/bank-data-2019.docx`" 
                     class="text-blue-600 hover:text-blue-800 underline"
                     download
                   >
@@ -44,7 +44,7 @@
                 </li>
                 <li>
                   <a 
-                    :href="`${baseURL}images/expeditions/Банк данных по ООПТ с возможностями приёма экоэкспедиций.docx`" 
+                    :href="`${baseURL}images/expeditions/bank-data-expeditions.docx`" 
                     class="text-blue-600 hover:text-blue-800 underline"
                     download
                   >
@@ -53,7 +53,7 @@
                 </li>
                 <li>
                   <a 
-                    :href="`${baseURL}images/expeditions/График возможных заездов экоэкспедиций на территории ООПТ.docx`" 
+                    :href="`${baseURL}images/expeditions/schedule-expeditions.docx`" 
                     class="text-blue-600 hover:text-blue-800 underline"
                     download
                   >
