@@ -32,6 +32,40 @@ This project is configured to build for Cloudflare Pages (Workers runtime) using
 - **Build output directory**: `.output/public`
 - **Node.js version**: Use Node 20+ (recommended for Nuxt 4)
 
+## Nuxt Studio (production editing + GitHub publish)
+
+This project uses `nuxt-studio` (alpha) to edit `content/` in production and publish changes back to GitHub.
+
+### GitHub OAuth App setup
+
+Nuxt Studio’s OAuth callback route is **not** `/_studio/...` — it’s:
+
+- `__nuxt_studio/auth/github`
+
+So for `https://aoopt-web.pages.dev`, set your OAuth app callback to:
+
+- `https://aoopt-web.pages.dev/__nuxt_studio/auth/github`
+
+Then set these environment variables in **Cloudflare Pages → Settings → Environment variables**:
+
+- `STUDIO_GITHUB_CLIENT_ID`
+- `STUDIO_GITHUB_CLIENT_SECRET`
+
+### Troubleshooting “GitHub publish … /git/blobs: 404”
+
+If you see an error like:
+
+- `[POST] "https://api.github.com/repos/<owner>/<repo>/git/blobs": 404`
+
+This is almost always **auth/access**, not “a wrong file path” (the `/git/blobs` endpoint doesn’t include a file path).
+
+Checklist:
+
+- **Logged-in account**: Make sure you’re signed into Studio with a GitHub user that has **write access** to the target repo/branch.
+- **Org restrictions**: If the repo is under a GitHub Organization with OAuth restrictions, you must **grant the OAuth app access** to that org (GitHub shows this under “Organization access” for the app).
+- **Scopes**: Nuxt Studio requests `repo` (default) or `public_repo` (if configured). If you changed `studio.repository.private`, re-login to refresh the granted scopes.
+- **Session sanity check**: While logged into Studio, open `https://<your-site>/__nuxt_studio/auth/session` to confirm which user is active (don’t share the `accessToken`).
+
 ### Fix for the error: “Workers-specific command in a Pages project”
 
 If your deploy log shows something like:
