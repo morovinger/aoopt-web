@@ -44,11 +44,20 @@ jobs:
       - name: Build for production (SSR)
         run: npm run build
 
+      - name: List build output (debug)
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Listing root:"
+          ls -la
+          echo "Checking .output:"
+          ls -la .output/ || echo ".output not found at root"
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: nuxt-output
-          path: .output/
+          path: .output
+          if-no-files-found: error
           retention-days: 1
 
   deploy:
