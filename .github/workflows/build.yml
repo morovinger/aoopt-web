@@ -92,4 +92,4 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key \
             ${{ secrets.TIMEWEB_USER }}@${{ secrets.TIMEWEB_HOST }} \
-            "source ~/.bashrc && cd ${{ secrets.TIMEWEB_PATH }} && pm2 restart ${{ secrets.TIMEWEB_PM2_NAME }} --update-env"
+            "cd ${{ secrets.TIMEWEB_PATH }} && /home/a/anton2000/nodejs_22/bin/pm2 restart ${{ secrets.TIMEWEB_PM2_NAME }} --update-env"
