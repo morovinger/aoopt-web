@@ -92,4 +92,4 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key \
             ${{ secrets.TIMEWEB_USER }}@${{ secrets.TIMEWEB_HOST }} \
-            "cd ${{ secrets.TIMEWEB_PATH }} && pm2 restart ${{ secrets.TIMEWEB_PM2_NAME }} --update-env"
+            "source ~/.bashrc && cd ${{ secrets.TIMEWEB_PATH }} && pm2 restart ${{ secrets.TIMEWEB_PM2_NAME }} --update-env"
