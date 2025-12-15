@@ -10,148 +10,130 @@ A modern Nuxt application with content management capabilities.
 npm install
 ```
 
-1. Start development server:
+2. Start development server:
 
 ```bash
 npm run dev
 ```
 
-1. Build for production:
+3. Build for production:
 
 ```bash
 npm run build
 ```
 
-## Deploy to Cloudflare Pages (NuxtHub + Cloudflare Pages)
+## Deploy to Timeweb Shared Hosting (SSR Mode)
 
-This project is configured to build for Cloudflare Pages (Workers runtime) using Nitro’s `cloudflare_pages` preset.
+This project is configured to deploy automatically to Timeweb shared hosting via GitHub Actions when you push to the `main` branch.
 
-### Cloudflare Pages (Dashboard) settings
+### Deployment Flow
 
-- **Build command**: `npm run build:cf`
-- **Build output directory**: `.output/public`
-- **Node.js version**: Use Node 20+ (recommended for Nuxt 4)
+```
+Push to GitHub → GitHub Actions builds → rsync to Timeweb → PM2 restart
+```
 
-## Nuxt Studio (production editing + GitHub publish)
+### GitHub Secrets Setup
+
+Configure these secrets in your GitHub repository (Settings → Secrets and variables → Actions):
+
+| Secret | Description | Example |
+|--------|-------------|---------|
+| `TIMEWEB_HOST` | Server hostname or IP | `s123.timeweb.ru` |
+| `TIMEWEB_USER` | SSH username | `u1234567` |
+| `TIMEWEB_SSH_KEY` | Private SSH key (entire content) | `-----BEGIN OPENSSH...` |
+| `TIMEWEB_PATH` | Deployment path on server | `/home/u1234567/aoopt-web` |
+| `TIMEWEB_PM2_NAME` | PM2 process name | `aoopt-web` |
+
+### Initial Server Setup (One Time)
+
+1. SSH into your Timeweb server:
+
+```bash
+ssh your-user@your-server.timeweb.ru
+```
+
+2. Create the project directory and clone (first time only):
+
+```bash
+mkdir -p ~/aoopt-web
+cd ~/aoopt-web
+```
+
+3. Create a `.env` file with environment variables:
+
+```bash
+cat > .env << 'EOF'
+STUDIO_GITHUB_CLIENT_ID=your_github_oauth_client_id
+STUDIO_GITHUB_CLIENT_SECRET=your_github_oauth_client_secret
+# NUXT_APP_BASE_URL=/  # Uncomment if deploying to a sub-path
+EOF
+```
+
+4. After the first GitHub Actions deploy, start PM2:
+
+```bash
+cd ~/aoopt-web
+pm2 start .output/server/index.mjs --name "aoopt-web"
+pm2 save
+pm2 startup  # Follow instructions to enable auto-start
+```
+
+### SSH Key Setup for GitHub Actions
+
+1. Generate a new SSH key pair (on your local machine):
+
+```bash
+ssh-keygen -t ed25519 -f timeweb_deploy -C "github-actions-deploy"
+```
+
+2. Add the public key to Timeweb server:
+
+```bash
+ssh-copy-id -i timeweb_deploy.pub your-user@your-server.timeweb.ru
+```
+
+3. Copy the private key content and add it as `TIMEWEB_SSH_KEY` secret in GitHub.
+
+### Manual Deployment (Optional)
+
+If you need to deploy manually:
+
+```bash
+npm run build
+rsync -avz --delete .output/ user@server:~/aoopt-web/.output/
+ssh user@server "cd ~/aoopt-web && pm2 restart aoopt-web"
+```
+
+## Nuxt Studio (Production Editing + GitHub Publish)
 
 This project uses `nuxt-studio` (alpha) to edit `content/` in production and publish changes back to GitHub.
 
-### GitHub OAuth App setup
+### GitHub OAuth App Setup
 
-Nuxt Studio’s OAuth callback route is **not** `/_studio/...` — it’s:
+Nuxt Studio's OAuth callback route is:
 
 - `__nuxt_studio/auth/github`
 
-So for `https://aoopt-web.pages.dev`, set your OAuth app callback to:
+For `https://your-domain.ru`, set your OAuth app callback to:
 
-- `https://aoopt-web.pages.dev/__nuxt_studio/auth/github`
+- `https://your-domain.ru/__nuxt_studio/auth/github`
 
-Then set these environment variables in **Cloudflare Pages → Settings → Environment variables**:
+Then set these environment variables on your server (in `.env`):
 
 - `STUDIO_GITHUB_CLIENT_ID`
 - `STUDIO_GITHUB_CLIENT_SECRET`
 
-### Troubleshooting “GitHub publish … /git/blobs: 404”
+### Troubleshooting "GitHub publish … /git/blobs: 404"
 
 If you see an error like:
 
 - `[POST] "https://api.github.com/repos/<owner>/<repo>/git/blobs": 404`
 
-This is almost always **auth/access**, not “a wrong file path” (the `/git/blobs` endpoint doesn’t include a file path).
-
 Checklist:
 
-- **Logged-in account**: Make sure you’re signed into Studio with a GitHub user that has **write access** to the target repo/branch.
-- **Org restrictions**: If the repo is under a GitHub Organization with OAuth restrictions, you must **grant the OAuth app access** to that org (GitHub shows this under “Organization access” for the app).
-- **Scopes**: Nuxt Studio requests `repo` (default) or `public_repo` (if configured). If you changed `studio.repository.private`, re-login to refresh the granted scopes.
-- **Session sanity check**: While logged into Studio, open `https://<your-site>/__nuxt_studio/auth/session` to confirm which user is active (don’t share the `accessToken`).
-
-### Fix for the error: “Workers-specific command in a Pages project”
-
-If your deploy log shows something like:
-
-- `Executing user deploy command: npx wrangler deploy`
-- `It looks like you've run a Workers-specific command in a Pages project. For Pages, please run wrangler pages deploy instead.`
-
-Then your **Cloudflare Pages project has a Deploy command set to a Workers command**.
-
-- **Fix (recommended)**: **Remove/clear the Deploy command** in Cloudflare Pages. Pages deploys automatically after the build using the “Build output directory”.
-- **Fix (if you really want a Deploy command)**: set it to:
-
-```bash
-npx wrangler pages deploy .output/public --project-name "$CF_PAGES_PROJECT_NAME"
-```
-
-### Fix for the error: `Output directory ".output/public" not found`
-
-If your Pages build log shows:
-
-- `No build command specified. Skipping build step.`
-- `Error: Output directory ".output/public" not found.`
-
-Then **no build command ran**, so the `.output/public` folder was never generated.
-
-- **Cloudflare Pages (Dashboard)**:
-  - **Build command**: `npm run build:cf`
-  - **Build output directory**: `.output/public`
-
-### Fix for the error: `Configuration file for Pages projects does not support "build"`
-
-If your Pages build log shows:
-
-- `Running configuration file validation for Pages:`
-- `Configuration file for Pages projects does not support "build"`
-
-Then **your `wrangler.toml` includes a `[build]` section**, which Pages currently rejects.
-
-- **Fix**: remove the `[build]` section from `wrangler.toml` and configure build in the **Cloudflare Pages Dashboard**:
-  - **Build command**: `npm run build:cf`
-  - **Build output directory**: `.output/public`
-
-### Base URL (optional)
-
-Cloudflare Pages is usually deployed at the domain root. If you ever deploy under a sub-path, set:
-
-- **Env var**: `NUXT_APP_BASE_URL`
-- **Example value**: `/mySite/` (must include leading and trailing `/`)
-
-### Fix for the error: `Error 8000057: Rule (...) in routes.json is over the 100 character limit`
-
-Cloudflare Pages enforces a **100 character limit per rule** in the routes file it uses for Functions routing.
-Some builds can generate overly long rules (often due to long asset paths).
-
-**Root cause**: Long filenames (especially Cyrillic/Unicode) become extremely long when URL-encoded. For example, a Russian filename like `Информационное письмо.docx` becomes `%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5%20%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE.docx` — way over 100 chars.
-
-**Fix (root cause)**:
-
-- **Keep all asset filenames short and ASCII-only** (e.g., `info-letter.docx` instead of Cyrillic names).
-- This repo has already renamed the problematic files in `public/images/expeditions/` and `public/images/law/`.
-
-**Fix (fallback)**:
-
-- This repo includes `public/_routes.json` with short wildcard rules.
-- The `postbuild` script copies it to `.output/public/_routes.json` so it overrides any generated routes.
-- If you customize routing later, keep each `include` / `exclude` entry **under 100 characters**.
-
-### Wrangler CLI (optional deploy)
-
-If you prefer deploying from your machine:
-
-```bash
-npm run build:cf
-npx wrangler pages deploy .output/public --project-name <your-pages-project-name>
-```
-
-### NuxtHub features (optional)
-
-`@nuxthub/core` is installed.
-
-If you want to enable the NuxtHub database (Cloudflare D1), set **Env var** `NUXT_HUB_DATABASE=true` and add a **D1 binding** in Cloudflare Pages:
-
-- **Binding name**: `DB`
-- **Resource**: your Cloudflare D1 database
-
-If you enable other NuxtHub features later (KV/R2/cache), you’ll also need to configure the corresponding Cloudflare bindings in your Pages project settings.
+- **Logged-in account**: Make sure you're signed into Studio with a GitHub user that has **write access** to the target repo/branch.
+- **Org restrictions**: If the repo is under a GitHub Organization with OAuth restrictions, grant the OAuth app access to that org.
+- **Session sanity check**: Open `https://<your-site>/__nuxt_studio/auth/session` to confirm which user is active.
 
 ## Project Structure
 
@@ -172,5 +154,4 @@ If you enable other NuxtHub features later (KV/R2/cache), you’ll also need to 
 - TypeScript
 - @nuxt/content
 - @nuxt/studio
-- @nuxthub/core
-- wrangler
+- Tailwind CSS

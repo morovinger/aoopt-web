@@ -4,9 +4,6 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "build:cf": "nuxi build --preset=cloudflare_pages",
-    "postbuild": "node scripts/ensure-cf-pages-routes.mjs",
-    "postbuild:cf": "node scripts/ensure-cf-pages-routes.mjs",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -14,7 +11,6 @@
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",
-    "@nuxthub/core": "^0.10.1",
     "nuxt": "^4.2.1",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3"
@@ -23,7 +19,6 @@
     "@nuxt/content": "^3.8.2",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@types/node": "^22.10.2",
-    "nuxt-studio": "^1.0.0-alpha.4",
-    "wrangler": "^4.54.0"
+    "nuxt-studio": "^1.0.0-alpha.4"
   }
 }
