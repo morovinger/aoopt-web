@@ -86,7 +86,7 @@ jobs:
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/deploy_key" \
             .output/ \
-            ${{ secrets.TIMEWEB_USER }}@${{ secrets.TIMEWEB_HOST }}:${{ secrets.TIMEWEB_PATH }}/.output/
+            ${{ secrets.TIMEWEB_USER }}@${{ secrets.TIMEWEB_HOST }}:${{ secrets.TIMEWEB_PATH }}/
 
       - name: Restart PM2 process
         run: |
